@@ -4,8 +4,24 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "我的博客",
-  description: "基于 Next.js 和 Markdown 的个人博客",
+  metadataBase: new URL("https://my-blog-pmcn.netlify.app"),
+  title: {
+    template: "%s | 我的博客",
+    default: "我的博客",
+  },
+  description: "分享技术与生活的个人博客",
+  openGraph: {
+    title: "我的博客",
+    description: "分享技术与生活的个人博客",
+    url: "/",
+    siteName: "我的博客",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "我的博客",
+    description: "分享技术与生活的个人博客",
+  },
 };
 
 export default function RootLayout({
