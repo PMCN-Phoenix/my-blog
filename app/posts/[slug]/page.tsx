@@ -67,7 +67,7 @@ export default async function PostPage({
       </div>
 
       {/* Markdown 渲染 */}
-      <div className="prose prose-lg max-w-none">
+      <div className="prose prose-lg prose-invert max-w-none">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[

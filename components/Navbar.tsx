@@ -31,8 +31,8 @@ export default function Navbar() {
               href={link.href}
               className={`${
                 pathname === link.href
-                  ? "text-blue-600 font-semibold"
-                  : "text-gray-600"
+                  ? "text-blue-300 font-semibold"
+                  : "text-gray-300"
               } hover:text-blue-600 transition`}
             >
               {link.label}
@@ -42,7 +42,7 @@ export default function Navbar() {
 
         {/* 移动端汉堡按钮 */}
         <button
-          className="sm:hidden text-gray-600"
+          className="sm:hidden text-gray-300"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="菜单"
         >
@@ -75,8 +75,8 @@ export default function Navbar() {
               href={link.href}
               className={`block py-1 ${
                 pathname === link.href
-                  ? "text-blue-600 font-semibold"
-                  : "text-gray-600"
+                  ? "text-blue-300 font-semibold"
+                  : "text-gray-300"
               }`}
               onClick={() => setMenuOpen(false)}
             >

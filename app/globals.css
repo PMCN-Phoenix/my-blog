@@ -25,3 +25,206 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* ===== 星空背景 ===== */
+.stars-container {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  /* 天空渐变：深蓝到紫 */
+  background: linear-gradient(to bottom, #0f172a, #1e1b4b, #2e1065);
+}
+
+/* 用 box-shadow 生成 150 颗星星 */
+.stars-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    /* 手动或工具生成的坐标 */
+    20px 30px #fff,
+    80px 120px #fff,
+    150px 45px #fff,
+    200px 180px #fff,
+    260px 90px #fff,
+    330px 20px #fff,
+    400px 150px #fff,
+    470px 200px #fff,
+    550px 60px #fff,
+    620px 130px #fff,
+    700px 10px #fff,
+    750px 190px #fff,
+    830px 100px #fff,
+    900px 40px #fff,
+    970px 210px #fff,
+    50px 250px #fff,
+    130px 320px #fff,
+    210px 280px #fff,
+    290px 360px #fff,
+    380px 290px #fff,
+    460px 350px #fff,
+    540px 220px #fff,
+    610px 310px #fff,
+    690px 270px #fff,
+    770px 340px #fff,
+    850px 240px #fff,
+    930px 300px #fff,
+    1010px 180px #fff,
+    40px 400px #fff,
+    120px 470px #fff,
+    200px 420px #fff,
+    280px 490px #fff,
+    370px 430px #fff,
+    450px 500px #fff,
+    530px 380px #fff,
+    610px 460px #fff,
+    690px 400px #fff,
+    770px 480px #fff,
+    850px 370px #fff,
+    930px 440px #fff,
+    1010px 410px #fff,
+    15px 540px #fff,
+    95px 600px #fff,
+    175px 550px #fff,
+    255px 620px #fff,
+    335px 560px #fff,
+    415px 630px #fff,
+    495px 520px #fff,
+    575px 590px #fff,
+    655px 540px #fff,
+    735px 610px #fff,
+    815px 530px #fff,
+    895px 600px #fff,
+    975px 550px #fff,
+    60px 680px #fff,
+    140px 740px #fff,
+    220px 690px #fff,
+    300px 760px #fff,
+    380px 700px #fff,
+    460px 770px #fff,
+    540px 660px #fff,
+    620px 730px #fff,
+    700px 680px #fff,
+    780px 750px #fff,
+    860px 670px #fff,
+    940px 730px #fff,
+    1020px 690px #fff;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+/* 中号星星层（更密一些，不同的动画速度） */
+.stars-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow:
+    10px 50px #fff,
+    90px 140px #fff,
+    170px 70px #fff,
+    240px 210px #fff,
+    310px 120px #fff,
+    390px 170px #fff,
+    470px 240px #fff,
+    550px 80px #fff,
+    630px 160px #fff,
+    710px 40px #fff,
+    790px 210px #fff,
+    870px 120px #fff,
+    950px 60px #fff,
+    1030px 180px #fff,
+    30px 290px #fff,
+    110px 360px #fff,
+    190px 310px #fff,
+    270px 390px #fff,
+    350px 320px #fff,
+    430px 380px #fff,
+    510px 250px #fff,
+    590px 350px #fff,
+    670px 290px #fff,
+    750px 370px #fff,
+    830px 260px #fff,
+    910px 330px #fff,
+    990px 200px #fff,
+    45px 450px #fff,
+    125px 510px #fff,
+    205px 460px #fff,
+    285px 530px #fff,
+    365px 470px #fff,
+    445px 540px #fff,
+    525px 410px #fff,
+    605px 500px #fff,
+    685px 440px #fff,
+    765px 520px #fff,
+    845px 400px #fff,
+    925px 480px #fff,
+    1005px 440px #fff,
+    70px 580px #fff,
+    150px 640px #fff,
+    230px 590px #fff,
+    310px 660px #fff,
+    390px 600px #fff,
+    470px 670px #fff,
+    550px 570px #fff,
+    630px 640px #fff,
+    710px 590px #fff,
+    790px 660px #fff,
+    870px 580px #fff,
+    950px 640px #fff,
+    1030px 600px #fff;
+  animation: twinkle 3s ease-in-out infinite alternate-reverse;
+}
+
+/* 闪烁动画 */
+@keyframes twinkle {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ===== 太阳样式 ===== */
+.sun {
+  position: absolute;
+  bottom: 2.5rem;   /* 对应 Tailwind 的 bottom-10 */
+  right: 2.5rem;    /* 对应 right-10 */
+  width: 8rem;      /* w-32 */
+  height: 8rem;     /* h-32 */
+  border-radius: 9999px;
+  background: #fef08a; /* yellow-200 */
+  opacity: 0.8;
+  filter: blur(1rem);
+  animation: sun-pulse 4s ease-in-out infinite;
+}
+
+.sun-core {
+  position: absolute;
+  bottom: 3rem;     /* bottom-12 */
+  right: 3rem;      /* right-12 */
+  width: 6rem;      /* w-24 */
+  height: 6rem;     /* h-24 */
+  border-radius: 9999px;
+  background: #fef9c3; /* yellow-100 */
+  opacity: 0.9;
+  filter: blur(0.25rem);
+}
+
+@keyframes sun-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
