@@ -29,6 +29,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
+      <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS 订阅"
+          href="/feed.xml"
+        />
+      </head>
       <body className="antialiased">
         <Navbar />
         <main className="max-w-2xl mx-auto px-4">{children}</main>
