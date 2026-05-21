@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPostBySlug, getAllPosts } from "@/lib/posts";
+import { getPostBySlug, getAllPosts, getAdjacentPosts } from "@/lib/posts";
 import TagBadge from "@/components/TagBadge";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -78,6 +78,41 @@ export default async function PostPage({
         >
           {post.content}
         </ReactMarkdown>
+      </div>
+
+      {/* 上一篇 / 下一篇导航 */}
+      <div className="mt-12 border-t pt-6 flex justify-between">
+        {(() => {
+          const { prev, next } = getAdjacentPosts(slug);
+          return (
+            <>
+              <div>
+                {prev ? (
+                  <Link
+                    href={`/posts/${prev.slug}`}
+                    className="text-blue-600 hover:underline"
+                  >
+                    ← {prev.title}
+                  </Link>
+                ) : (
+                  <span className="text-gray-400">没有更早的文章了</span>
+                )}
+              </div>
+              <div>
+                {next ? (
+                  <Link
+                    href={`/posts/${next.slug}`}
+                    className="text-blue-600 hover:underline"
+                  >
+                    {next.title} →
+                  </Link>
+                ) : (
+                  <span className="text-gray-400">已经是最新文章</span>
+                )}
+              </div>
+            </>
+          );
+        })()}
       </div>
     </article>
   );

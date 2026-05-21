@@ -102,3 +102,12 @@ export function getPostsByTag(tag: string): Post[] {
   const posts = getAllPosts();
   return posts.filter(p => (p.tags || []).includes(tag));
 }
+
+export function getAdjacentPosts(slug: string) {
+    const posts = getAllPosts(); // 已经按日期倒序
+    const index = posts.findIndex((p) => p.slug === slug);
+    return {
+        prev: index < posts.length - 1 ? posts[index + 1] : null,
+        next: index > 0 ? posts[index - 1] : null,
+      };
+  }
